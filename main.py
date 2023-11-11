@@ -51,6 +51,6 @@ print(result_dataFrame3.head())
 
 connection.close()
 
-result_dataFrame1.to_csv('DF_1.csv')
-result_dataFrame2.to_csv('DF_2.csv')
-result_dataFrame3.to_csv('DF_3.csv')
+result_dataFrame1.to_csv('datasets/DF_1.csv')
+result_dataFrame2.to_csv('datasets/DF_2.csv')
+result_dataFrame3.to_csv('datasets/DF_3.csv')
