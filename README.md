@@ -1,3 +1,3 @@
 # covid_db
 
-Technologies utilized: phpMyAdmin, MySQL, Python
+Technologies utilized: MySQL, Python, Pandas
