@@ -97,8 +97,6 @@ country_population = merged_dataframe.groupby("CountryName")["CountryPopulation"
 
 country_population_dict = country_population.to_dict()
 
-print(type(country_population))
-
 brazil_dict = {}
 china_dict = {}
 egypt_dict = {}
@@ -111,104 +109,79 @@ for key, value in country_population_dict.items():
 
     # For Countries bordering Brazil
     if key_1 == "Argentina":
-        brazil_dict[key_1] = value      
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
 
     if key_1 == "Bolivia":
-        brazil_dict[key_1] = value
-
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
     if key_1 == "Colombia":
-        brazil_dict[key_1] = value
-
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
     if key_1 == "French Guiana":
-        brazil_dict[key_1] = value
-
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
     if key_1 == "Guyana":
-        brazil_dict[key_1] = value
-
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
     if key_1 == "Paraguay":
-        brazil_dict[key_1] = value
-
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
     if key_1 == "Peru":
-        brazil_dict[key_1] = value
-
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
     if key_1 == "Suriname":
-        brazil_dict[key_1] = value
-
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
     if key_1 == "Uruguay":
-        brazil_dict[key_1] = value
-
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
     if key_1 == "Venezuela":
-        brazil_dict[key_1] = value
+        brazil_dict[key_1] = round(150000 / (key_2 / value), 2)    
 
     # For Countries bordering China
     if key_1 == "Afghanistan":
-        china_dict[key_1] = value
-
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Bhutan":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "India":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Kazakstan":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "North Korea":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Kyrgyzstan":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Laos":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Mongolia":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Myanmar":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Burma":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Pakistan":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Russia":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Mongolia":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Tajikistan":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     if key_1 == "Vietnam":
-        china_dict[key_1] = value
-        
+        china_dict[key_1] = round(200000 / (key_2 / value), 2)    
     # For Countries bordering Egypt
     if key_1 == "Israel":
-        egypt_dict[key_1] = value
-
+        egypt_dict[key_1] = round(50000 / (key_2 / value), 2)    
     if key_1 == "Libya":
-        egypt_dict[key_1] = value
-
+        egypt_dict[key_1] = round(50000 / (key_2 / value), 2)    
     if key_1 == "Sudan":
-        egypt_dict[key_1] = value
+        egypt_dict[key_1] = round(50000 / (key_2 / value), 2)    
 
     # For Countries bordering Sweden
     if key_1 == "Finland":
-        sweden_dict[key_1] = value
+        sweden_dict[key_1] = round(50000 / (key_2 / value), 2)    
 
     if key_1 == "Norway":
-        sweden_dict[key_1] = value
+        sweden_dict[key_1] = round(50000 / (key_2 / value), 2)    
 
     # For Countries bordering USA
     if key_1 == "Canada":
-        usa_dict[key_1] = value
-
+        usa_dict[key_1] = round(150000 / (key_2 / value), 2)    
+    
     if key_1 == "Mexico":
-        usa_dict[key_1] = value
+        usa_dict[key_1] = round(150000 / (key_2 / value), 2)    
 
 pprint(brazil_dict)
 pprint(china_dict)
