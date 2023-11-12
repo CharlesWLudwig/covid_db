@@ -77,7 +77,31 @@ merged_dataframe = result_dataFrame1.merge(
 
 # print(merged_dataframe)
 
-merged_dataframe.to_csv('datasets/merged_dataset.csv')
+by_country = merged_dataframe.groupby("CountryName")
+
+"""
+brazil_group = by_country.groups["Brazil"]
+china_group = by_country.groups["China"]
+egypt_group = by_country.groups["Egypt"]
+sweden_group = by_country.groups["Sweden"]
+usa_group = by_country.groups["United States"]
+"""
+
+brazil_group = by_country.get_group("Brazil")
+china_group = by_country.get_group("China")
+egypt_group = by_country.get_group("Egypt")
+sweden_group = by_country.get_group("Sweden")
+usa_group = by_country.get_group("United States")
+"""
+print(brazil_group)
+print(china_group)
+print(egypt_group)
+print(sweden_group)
+print(usa_group)
+"""
+print(merged_dataframe.columns)
+       
+merged_dataframe.groupby("CountryName")["CountryPopulation"].value_counts().to_csv('datasets/merged_grouped.csv')
 
 """
 print(result_dataFrame1.head())
@@ -88,5 +112,4 @@ result_dataFrame1.to_csv('datasets/DF_1.csv')
 result_dataFrame2.to_csv('datasets/DF_2.csv')
 result_dataFrame3.to_csv('datasets/DF_3.csv')
 """
-
 connection.close()
