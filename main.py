@@ -45,6 +45,10 @@ try:
 except Exception as e:
     print(str(e))
 
+connection.close()
+
+# Renaming columns from tables for consistency across dataframes
+
 result_dataFrame1.rename(
     columns={
         'Name': 'CityName',
@@ -53,8 +57,6 @@ result_dataFrame1.rename(
     }, 
     inplace=True
 )
-
-# print(result_dataFrame1.columns)
 
 result_dataFrame2.rename(
     columns={
@@ -65,51 +67,51 @@ result_dataFrame2.rename(
     inplace=True
 )
 
-# print(result_dataFrame2.columns)
-
-# print(result_dataFrame3.columns)
-
 merged_dataframe = result_dataFrame1.merge(
     result_dataFrame2,on='CountryCode'
     ).merge(
         result_dataFrame3,on='CountryCode'
     )
 
-# print(merged_dataframe)
-
+# Creating groups of different countries for vaccine allocations
 by_country = merged_dataframe.groupby("CountryName")
-
-"""
-brazil_group = by_country.groups["Brazil"]
-china_group = by_country.groups["China"]
-egypt_group = by_country.groups["Egypt"]
-sweden_group = by_country.groups["Sweden"]
-usa_group = by_country.groups["United States"]
-"""
 
 brazil_group = by_country.get_group("Brazil")
 china_group = by_country.get_group("China")
 egypt_group = by_country.get_group("Egypt")
 sweden_group = by_country.get_group("Sweden")
 usa_group = by_country.get_group("United States")
-"""
-print(brazil_group)
-print(china_group)
-print(egypt_group)
-print(sweden_group)
-print(usa_group)
-"""
-print(merged_dataframe.columns)
+
+# Saving different groups to different CSV files (for posterity)
+brazil_group.to_csv('datasets/groups/brazil_group.csv')
+china_group.to_csv('datasets/groups/china_group.csv')
+egypt_group.to_csv('datasets/groups/egypt_group.csv')
+sweden_group.to_csv('datasets/groups/sweden_group.csv')
+usa_group.to_csv('datasets/groups/usa_group.csv')
        
-merged_dataframe.groupby("CountryName")["CountryPopulation"].value_counts().to_csv('datasets/merged_grouped.csv')
+# Extracting countries by their populations and number of cities
+merged_dataframe.groupby("CountryName")["CountryPopulation"].value_counts().to_csv('datasets/country_by_population_and_cities.csv')
+
+merged_dataframe.drop(
+    ['Capital',
+     'Code2',
+     'Language',
+     'IsOfficial',
+     'Percentage',
+     'ID',
+     'CityDistrict',
+     'Continent',
+     'Region',
+     'IndepYear',
+     'GNPOld',
+     'LocalName'
+    ], axis=1, inplace=True)
+
+merged_dataframe.to_csv('datasets/all_countries.csv')
 
 """
-print(result_dataFrame1.head())
-print(result_dataFrame2.head())
-print(result_dataFrame3.head())
-
+# Original Tables from Database
 result_dataFrame1.to_csv('datasets/DF_1.csv')
 result_dataFrame2.to_csv('datasets/DF_2.csv')
 result_dataFrame3.to_csv('datasets/DF_3.csv')
 """
-connection.close()
