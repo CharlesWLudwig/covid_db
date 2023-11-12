@@ -45,17 +45,39 @@ try:
 except Exception as e:
     print(str(e))
 
-print(result_dataFrame1.columns)
-
-result_dataFrame2.rename(
+result_dataFrame1.rename(
     columns={
-        'Code': 'CountryCode'
+        'Name': 'CityName',
+        'District': 'CityDistrict',
+        'Population': 'CityPopulation'
     }, 
     inplace=True
 )
 
-print(result_dataFrame2.columns)
-print(result_dataFrame3.columns)
+# print(result_dataFrame1.columns)
+
+result_dataFrame2.rename(
+    columns={
+        'Name': 'CountryName',
+        'Code': 'CountryCode',
+        'Population': 'CountryPopulation'
+    }, 
+    inplace=True
+)
+
+# print(result_dataFrame2.columns)
+
+# print(result_dataFrame3.columns)
+
+merged_dataframe = result_dataFrame1.merge(
+    result_dataFrame2,on='CountryCode'
+    ).merge(
+        result_dataFrame3,on='CountryCode'
+    )
+
+# print(merged_dataframe)
+
+merged_dataframe.to_csv('datasets/merged_dataset.csv')
 
 """
 print(result_dataFrame1.head())
