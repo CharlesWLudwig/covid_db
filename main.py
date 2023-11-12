@@ -1,5 +1,6 @@
 import pymysql
 import os
+from pprint import pprint
 import csv
 from dotenv import load_dotenv
 import sqlalchemy
@@ -209,11 +210,11 @@ for key, value in country_population_dict.items():
     if key_1 == "Mexico":
         usa_dict[key_1] = value
 
-print(brazil_dict)
-print(china_dict)
-print(egypt_dict)
-print(sweden_dict)
-print(usa_dict)
+pprint(brazil_dict)
+pprint(china_dict)
+pprint(egypt_dict)
+pprint(sweden_dict)
+pprint(usa_dict)
 
 merged_dataframe.drop(
     ['Capital',
