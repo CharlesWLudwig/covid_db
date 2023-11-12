@@ -1,5 +1,4 @@
 mysqlclient
-sqlalchemy
 pymysql
 python-dotenv
 mysql-connector-python
