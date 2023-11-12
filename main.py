@@ -92,6 +92,129 @@ usa_group.to_csv('datasets/groups/usa_group.csv')
 # Extracting countries by their populations and number of cities
 merged_dataframe.groupby("CountryName")["CountryPopulation"].value_counts().to_csv('datasets/country_by_population_and_cities.csv')
 
+country_population = merged_dataframe.groupby("CountryName")["CountryPopulation"].value_counts()
+
+country_population_dict = country_population.to_dict()
+
+print(type(country_population))
+
+brazil_dict = {}
+china_dict = {}
+egypt_dict = {}
+sweden_dict = {}
+usa_dict = {}
+
+for key, value in country_population_dict.items():
+    # Separating keys in tuple variable 'key'
+    key_1, key_2 = key
+
+    # For Countries bordering Brazil
+    if key_1 == "Argentina":
+        brazil_dict[key_1] = value      
+
+    if key_1 == "Bolivia":
+        brazil_dict[key_1] = value
+
+    if key_1 == "Colombia":
+        brazil_dict[key_1] = value
+
+    if key_1 == "French Guiana":
+        brazil_dict[key_1] = value
+
+    if key_1 == "Guyana":
+        brazil_dict[key_1] = value
+
+    if key_1 == "Paraguay":
+        brazil_dict[key_1] = value
+
+    if key_1 == "Peru":
+        brazil_dict[key_1] = value
+
+    if key_1 == "Suriname":
+        brazil_dict[key_1] = value
+
+    if key_1 == "Uruguay":
+        brazil_dict[key_1] = value
+
+    if key_1 == "Venezuela":
+        brazil_dict[key_1] = value
+
+    # For Countries bordering China
+    if key_1 == "Afghanistan":
+        china_dict[key_1] = value
+
+    if key_1 == "Bhutan":
+        china_dict[key_1] = value
+        
+    if key_1 == "India":
+        china_dict[key_1] = value
+        
+    if key_1 == "Kazakstan":
+        china_dict[key_1] = value
+        
+    if key_1 == "North Korea":
+        china_dict[key_1] = value
+        
+    if key_1 == "Kyrgyzstan":
+        china_dict[key_1] = value
+        
+    if key_1 == "Laos":
+        china_dict[key_1] = value
+        
+    if key_1 == "Mongolia":
+        china_dict[key_1] = value
+        
+    if key_1 == "Myanmar":
+        china_dict[key_1] = value
+        
+    if key_1 == "Burma":
+        china_dict[key_1] = value
+        
+    if key_1 == "Pakistan":
+        china_dict[key_1] = value
+        
+    if key_1 == "Russia":
+        china_dict[key_1] = value
+        
+    if key_1 == "Mongolia":
+        china_dict[key_1] = value
+        
+    if key_1 == "Tajikistan":
+        china_dict[key_1] = value
+        
+    if key_1 == "Vietnam":
+        china_dict[key_1] = value
+        
+    # For Countries bordering Egypt
+    if key_1 == "Israel":
+        egypt_dict[key_1] = value
+
+    if key_1 == "Libya":
+        egypt_dict[key_1] = value
+
+    if key_1 == "Sudan":
+        egypt_dict[key_1] = value
+
+    # For Countries bordering Sweden
+    if key_1 == "Finland":
+        sweden_dict[key_1] = value
+
+    if key_1 == "Norway":
+        sweden_dict[key_1] = value
+
+    # For Countries bordering USA
+    if key_1 == "Canada":
+        usa_dict[key_1] = value
+
+    if key_1 == "Mexico":
+        usa_dict[key_1] = value
+
+print(brazil_dict)
+print(china_dict)
+print(egypt_dict)
+print(sweden_dict)
+print(usa_dict)
+
 merged_dataframe.drop(
     ['Capital',
      'Code2',
